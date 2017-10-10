@@ -20,9 +20,9 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
   });
 
-  $('.lineUpButton').on('click', function(event) {
-      $(".dancer").height() * 500;
-  });
+  // $('.lineUpButton').on('click', function(event) {
+  //     $(".dancer").height() * 500;
+  // });
 });
 
     
