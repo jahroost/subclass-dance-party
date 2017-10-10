@@ -1,3 +1,4 @@
+
 // var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 //   var blinkyDancer = makeDancer(top, left, timeBetweenSteps); //create new dancer
 
@@ -26,6 +27,7 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // in here prototype methods are available
   makeDancer.call(this, top, left, timeBetweenSteps);
+  // this.timeBetweenSteps = timeBetweenSteps
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
@@ -34,8 +36,10 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 makeBlinkyDancer.prototype.step = function() {
   // call the old version of step at the beginning of 
   //any call to this new version of step
-  
-  makeDancer.prototype.step(this.timeBetweenSteps);
+
+
+  console.log(this.color);
+  makeDancer.prototype.step.call(this);
 
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
@@ -45,4 +49,29 @@ makeBlinkyDancer.prototype.step = function() {
 
 
 //figure out a way to call makeDancer step function, with context of makeblinkyDancer
-//this in line 45 has to be correctly 
+//this in line 45 has to be correctly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

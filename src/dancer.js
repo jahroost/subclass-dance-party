@@ -1,3 +1,4 @@
+
 // // Creates and returns a new dancer object that can step
 // var makeDancer = function(top, left, timeBetweenSteps) {
 //   var dancer = {};
@@ -33,32 +34,33 @@
 
 
 var makeDancer = function(top, left, timeBetweenSteps) {
+  this.position = { top, left }
+  this.timeBetweenSteps = timeBetweenSteps
   this.$node = $('<span class="dancer"></span>');
   this.step();
-  // this.setPosition(top, left);
+  this.setPosition(top, left);
 };
 
 
-makeDancer.prototype.step = function(timeBetweenSteps) {
-  // you have the corrent child's this
+makeDancer.prototype.step = function() {
+  // you have the correct child's this
   // invoke this.step()
-  console.log('In makeDancer');
-  //this. is makeDancer
-  //.call .apply .bind
-  setTimeout(this.bind(this.step)timeBetweenSteps);
+  console.log('time between steps: ', this.timeBetweenSteps, this)
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+
 };
+//this. is makeDancer
+//.call .apply .bind
+// setTimeout(makeBlinkyDancer.step.apply(makeBlinkyDancer), timeBetweenSteps);
 // makeDancer.prototype.step();
-
-
 
 //probably whats wrong with the button
 makeDancer.prototype.setPosition = function() {
-  this.styleSettings = {
-    top: top,
-    left: left
-  };
-  this.$node.css(styleSettings);
+
+  this.$node.css(this.position);
 };
+
+
 
 
 
