@@ -2,6 +2,7 @@
 $(document).ready(function() {
   window.dancers = [];
 
+
   $('.addDancerButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // console.log(dancerMakerFunctionName);
@@ -17,6 +18,10 @@ $(document).ready(function() {
     );
     dancers.push(dancer);
     $('body').append(dancer.$node);
+  });
+
+  $('.lineUpButton').on('click', function(event) {
+      $(".dancer").height() * 500;
   });
 });
 
