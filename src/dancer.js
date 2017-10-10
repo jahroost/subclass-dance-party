@@ -42,13 +42,16 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 makeDancer.prototype.step = function(timeBetweenSteps) {
   // you have the corrent child's this
   // invoke this.step()
-  setTimeout(this.step, timeBetweenSteps);
+  console.log('In makeDancer');
+  //this. is makeDancer
+  //.call .apply .bind
+  setTimeout(this.bind(this.step)timeBetweenSteps);
 };
 // makeDancer.prototype.step();
 
 
 
-
+//probably whats wrong with the button
 makeDancer.prototype.setPosition = function() {
   this.styleSettings = {
     top: top,
